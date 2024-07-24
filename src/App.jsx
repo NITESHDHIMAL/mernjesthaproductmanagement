@@ -8,7 +8,7 @@ import ProductAdder from './components/ProductAdder'
 function App() {
 
 
-  const products = [
+  const initialproducts = [
     {
       name: "Apple",
       description: "best apple",
@@ -28,10 +28,13 @@ function App() {
 
   // console.log(products[0])
 
-  //  const [products, setProducts] = useState("")
+   const [products, setProducts] = useState(initialproducts)
 
   const addProductData = (singlerproductdata) => {
-    products.push(singlerproductdata)
+
+    setProducts([...products, singlerproductdata])
+
+    // products.push(singlerproductdata)
 
     // alert("function call")
 
