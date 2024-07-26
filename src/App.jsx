@@ -62,8 +62,8 @@ function App() {
 
   const datafromlocalstorage = JSON.parse(localStorage.getItem("products"))
 
-  // const [products, setProducts] = useState(initialproducts)
-  const [products, setProducts] = useState(datafromlocalstorage)
+  const [products, setProducts] = useState(initialproducts)
+  // const [products, setProducts] = useState(datafromlocalstorage)
 
   const addProductData = (singlerproductdata) => {
     let allproducts = [...products, singlerproductdata]
