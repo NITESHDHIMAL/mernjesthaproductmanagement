@@ -13,27 +13,69 @@ function App() {
       name: "Apple",
       description: "best apple",
       price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
     },
     {
       name: "Banana",
       description: "best apple",
       price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
     },
     {
       name: "Orange",
       description: "best apple",
       price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
+    },
+    {
+      name: "Orange",
+      description: "best apple",
+      price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
+    },
+    {
+      name: "Orange",
+      description: "best apple",
+      price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
+    },
+    {
+      name: "Orange",
+      description: "best apple",
+      price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
+    },
+    {
+      name: "Orange",
+      description: "best apple",
+      price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
+    },
+    {
+      name: "Orange",
+      description: "best apple",
+      price: "300",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
     },
   ]
 
   // console.log(products[0])
 
-   const [products, setProducts] = useState(initialproducts)
+  const datafromlocalstorage = JSON.parse(localStorage.getItem("products"))
+
+  const [products, setProducts] = useState(initialproducts)
+  // const [products, setProducts] = useState(datafromlocalstorage)
 
   const addProductData = (singlerproductdata) => {
 
-    setProducts([...products, singlerproductdata])
 
+
+    // let allproducts = [...products, singlerproductdata]
+    let allproducts = [singlerproductdata]
+
+    setProducts(allproducts)
+
+    localStorage.setItem("products", JSON.stringify(allproducts))
     // products.push(singlerproductdata)
 
     // alert("function call")
@@ -42,30 +84,65 @@ function App() {
   }
 
 
-  const [name, setName] = useState("Shyam")
+  // const [name, setName] = useState("Shyam")
 
-  // let name = "Shyam"
+  // // let name = "Shyam"
 
-  const changeName = () => {
-    setName("Ram")
-    // name = "Ram"
-  }
+  // const changeName = () => {
+  //   setName("Ram")
+  //   // name = "Ram"
+  // }
+
+
+  // const saveData = () => {
+  //   localStorage.setItem("name", "green apple")
+  //   localStorage.setItem("description", "best green apple")
+  //   localStorage.setItem("price", "400")
+  // }
+
+  // const getData = () => {
+  //   const getData = localStorage.getItem("name")
+  //   alert(getData)
+  // }
+
+  // const deleteData = () => {
+  //   localStorage.removeItem("name")
+
+  // }
+
 
 
   return (
     <>
+ 
+      <ProductAdder addproduct={addProductData} />
 
-    <ProductAdder addproduct = {addProductData} />
+      <section class="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-md text-center">
+            <h2 class="font-serif text-2xl font-bold sm:text-3xl">Fresh Fruits & Vegetables</h2>
+          </div>
+          <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-16">
+            {products?.map((data) => (
+              <SingleProduct data={data} />
+            ))}
+          </div>
 
-      {products?.map((data) => (
-        <SingleProduct data={data} />
-      ))}
+        </div>
+      </section>
+      <h2 className='text-red-500'>name</h2>
 
 
-      <h2>My name is {name}</h2>
 
 
-      <button onClick={changeName} >click to change the name</button>
+      {/* locastorage  */}
+      {/* <button onClick={saveData}>Save Data</button>
+      <button onClick={getData}>Get Data</button>
+      <button onClick={deleteData}>Delete Data</button> */}
+
+
+      {/* <h2>My name is {name}</h2>
+      <button onClick={changeName} >click to change the name</button> */}
 
       {/* <SingleProduct data={products[0]}/> */}
 
