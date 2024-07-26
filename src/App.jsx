@@ -59,62 +59,27 @@ function App() {
     },
   ]
 
-  // console.log(products[0])
 
   const datafromlocalstorage = JSON.parse(localStorage.getItem("products"))
 
-  const [products, setProducts] = useState(initialproducts)
-  // const [products, setProducts] = useState(datafromlocalstorage)
+  // const [products, setProducts] = useState(initialproducts)
+  const [products, setProducts] = useState(datafromlocalstorage)
 
   const addProductData = (singlerproductdata) => {
-
-
-
-    // let allproducts = [...products, singlerproductdata]
-    let allproducts = [singlerproductdata]
+    let allproducts = [...products, singlerproductdata]
 
     setProducts(allproducts)
 
     localStorage.setItem("products", JSON.stringify(allproducts))
-    // products.push(singlerproductdata)
 
-    // alert("function call")
 
     console.log(products)
   }
 
 
-  // const [name, setName] = useState("Shyam")
-
-  // // let name = "Shyam"
-
-  // const changeName = () => {
-  //   setName("Ram")
-  //   // name = "Ram"
-  // }
-
-
-  // const saveData = () => {
-  //   localStorage.setItem("name", "green apple")
-  //   localStorage.setItem("description", "best green apple")
-  //   localStorage.setItem("price", "400")
-  // }
-
-  // const getData = () => {
-  //   const getData = localStorage.getItem("name")
-  //   alert(getData)
-  // }
-
-  // const deleteData = () => {
-  //   localStorage.removeItem("name")
-
-  // }
-
-
-
   return (
     <>
- 
+
       <ProductAdder addproduct={addProductData} />
 
       <section class="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
@@ -130,27 +95,6 @@ function App() {
 
         </div>
       </section>
-      <h2 className='text-red-500'>name</h2>
-
-
-
-
-      {/* locastorage  */}
-      {/* <button onClick={saveData}>Save Data</button>
-      <button onClick={getData}>Get Data</button>
-      <button onClick={deleteData}>Delete Data</button> */}
-
-
-      {/* <h2>My name is {name}</h2>
-      <button onClick={changeName} >click to change the name</button> */}
-
-      {/* <SingleProduct data={products[0]}/> */}
-
-      {/* <SingleProduct data={products}/> */}
-
-      {/* name: {products[0].name}
-    price: {products[0].price}
-    description: {products[0].description} */}
 
     </>
   )
